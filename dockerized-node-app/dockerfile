@@ -1,11 +1,11 @@
-# Use the alpine node LTS Image  
-FROM node:18-alpine 
+# Use the alpine node LTS Image
+FROM node:18-alpine
 
 # Create a working directory
 WORKDIR /app
 
 # Copy package.json and package-lock.json
-COPY package*.json .
+COPY package*.json ./
 
 # Install Dependencies
 RUN npm install
@@ -16,6 +16,4 @@ COPY . .
 # expose 8080 port
 EXPOSE 8080
 
-# Run the application
 CMD ["node", "index.js"]
-
