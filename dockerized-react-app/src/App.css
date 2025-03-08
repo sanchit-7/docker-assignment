@@ -1,8 +1,19 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0;
+  /* padding: 2rem; */
   text-align: center;
+}
+
+.main-container {
+  background-image: url('https://www.innofactor.com/globalassets/hero-images-1920x800/hero-azure-services.jpg?width=1920&height=1080&mode=crop&quality=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;              /* Full viewport height */
+  width: 100vw;               /* Full viewport width */
+  margin: 0;                  /* Removes default margin */
+  /* overflow: hidden;       */
 }
 
 .logo {

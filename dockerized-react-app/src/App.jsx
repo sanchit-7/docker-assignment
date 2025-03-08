@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import "./App.css";
 import ContributorsUI from "./components/ContributorsUI";
+import AddContributorForm from "./components/AddContributors";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -11,9 +12,13 @@ function App() {
     fetchAllUsers();
   }, []);
 
+  const refetechUsers = async () => {
+    fetchAllUsers();
+  }
+
   const fetchAllUsers = async () => {
     try {
-      const res = await fetch(`/api/users`);
+      const res = await fetch(`/api/contributors`);
       const data = await res.json();
       setUsers(data.data);
     } catch (error) {
@@ -22,8 +27,8 @@ function App() {
   };
 
   return (
-    <>
-      <div>
+    <div className="main-container">
+      <div className="logos">
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -33,7 +38,8 @@ function App() {
       </div>
       <h1>Vite + React!</h1>
       <ContributorsUI contributors={users} />
-    </>
+      <AddContributorForm refetechUsers={refetechUsers} />
+    </div>
   );
 }
 

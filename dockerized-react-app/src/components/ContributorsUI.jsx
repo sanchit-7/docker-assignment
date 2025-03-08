@@ -2,6 +2,7 @@ import React from "react";
 import "./Contributors.css";
 
 function ContributorsUI({ contributors }) {
+
   // Random pastel colors generator
   const getRandomPastelColor = () => {
     const pastelColors = [
@@ -13,8 +14,10 @@ function ContributorsUI({ contributors }) {
       "#FF99FF",
       "#FFCCFF",
       "#C2B4FF",
+      "#C2B4FP",
+      "#C2B4FL"
     ];
-    const randomIndex = Math.floor(Math.random() * pastelColors.length);
+    const randomIndex = Math.floor((Math.random() * (pastelColors.length)));
     return pastelColors[randomIndex];
   };
 
@@ -30,7 +33,7 @@ function ContributorsUI({ contributors }) {
   return (
     <div className="contributors-container">
       <div className="contributors-box">
-        <h2 className="contributors-heading">Contributors</h2> {/* Heading */}
+        <h2 className="contributors-heading">Contributors</h2>
         <div className="contributors-list">
           {contributors.length > 0 ? (
             contributors.map((contributor, index) => (
