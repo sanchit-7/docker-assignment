@@ -1,17 +1,23 @@
-const dotenv = require("dotenv");
-const express = require("express");
-const cors = require("cors");
-const connectDB = require("./config/db");
-const apiRoutes = require("./routes/api");
+import dotenv from "dotenv";
+import express from "express";
+import cors from "cors";
+import getDbConnection from "./config/db.js";
+import apiRoutes from "./routes/api.js";
+import checkAndCreateDbCollectionExist from "./config/dbInsertion.js";
 
+// Load env vars
 dotenv.config();
 
+// Initialize Express
 const app = express();
+
+// Set PORT
 const PORT = process.env.PORT || 8080;
-console.log(PORT, "here is PORT!!");
 
 // Connect to MongoDB
-connectDB();
+await getDbConnection();
+
+await checkAndCreateDbCollectionExist("test", "users");
 
 // Middleware
 app.use(express.json());

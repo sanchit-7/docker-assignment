@@ -18,6 +18,7 @@ services:
     container_name: node-app
     environment:
       - MONGODB_URI=mongodb://database:27017/
+      - CHOKIDAR_USEPOLLING=true
     volumes:
       - ./dockerized-node-app:/usr/src/app
       - /usr/src/app/node_modules

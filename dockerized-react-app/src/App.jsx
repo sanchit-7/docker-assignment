@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import "./App.css";
+import ContributorsUI from "./components/ContributorsUI";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -31,10 +32,7 @@ function App() {
         </a>
       </div>
       <h1>Vite + React!</h1>
-      <p>
-        {users.length &&
-          users.map((item) => <p key={`${item.name}`}>{item.name}</p>)}
-      </p>
+      <ContributorsUI contributors={users} />
     </>
   );
 }
