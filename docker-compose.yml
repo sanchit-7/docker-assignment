@@ -9,34 +9,44 @@ services:
       - mongo-data:/data/db
     networks:
       - app-network
+    deploy:
+      resources:
+        limits:
+          memory: 512M
 
   backend:
     image: node:18-alpine
     build:
       context: ./dockerized-node-app
       dockerfile: Dockerfile
+      target: development
     container_name: node-app
     environment:
       - MONGODB_URI=mongodb://database:27017/
       - CHOKIDAR_USEPOLLING=true
     volumes:
-      - ./dockerized-node-app:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./dockerized-node-app:/app
+      - /app/node_modules
     expose:
       - "8080"
     networks:
       - app-network
     depends_on:
       - database
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
 
   frontend:
     build:
       context: ./dockerized-react-app
       dockerfile: Dockerfile
+      target: development
     container_name: react-app
     volumes:
-      - ./dockerized-react-app:/usr/src/app
-      - /usr/src/app/node_modules
+      - ./dockerized-react-app:/app
+      - /app/node_modules
     ports:
       - "3000:3000"
     environment:
