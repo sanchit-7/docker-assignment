@@ -12,7 +12,7 @@ This assignment demonstrates understanding of Docker containerization by impleme
 - [x] Establish inter-container communication via a bridge network
 - [x] Apply resource constraints to containers
 - [x] Implement development and production environments
-- [x] Ensure proper volume mapping for development workflow
+- [x] Ensure proper volume mapping for development workflows
 
 ## Project Structure
 
