@@ -1,0 +1,49 @@
+services: 
+  database: 
+    image: mongo:latest
+    container_name: mongo-db
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    networks:
+      - app-network
+  
+  backend:
+    image: node:18-alpine
+    build:
+      context: ./dockerized-node-app
+    container_name: node-app
+    environment:
+      - MONGODB_URI=mongodb://admin:12229@database:27017/
+    volumes:
+      - ./dockerized-node-app:/usr/src/app
+    # command: npm run devw
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+    depends_on:
+      - database
+
+  frontend:
+    build:
+      context: ./dockerized-react-app
+    container_name: react-app
+    environment:
+      - VITE_BACKEND_URL=http://backend:8080
+    volumes:
+      - ./dockerized-react-app:/usr/src/app
+    ports:
+      - "3000:5173"
+    command: npm run dev
+    networks:
+      - app-network
+
+networks: 
+  app-network:
+    driver: bridge    
+
+volumes:
+  mongo-data:
