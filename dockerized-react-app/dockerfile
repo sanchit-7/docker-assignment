@@ -1,5 +1,5 @@
 # Use official Node.js image
-FROM node:18
+FROM node:18-alpine AS development
 
 # Set the working directory inside the container
 WORKDIR /usr/src/app
@@ -18,3 +18,5 @@ EXPOSE 5173
 
 # Start Vite development server
 CMD ["npm", "run", "dev"]
+
+

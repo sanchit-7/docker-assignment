@@ -29,7 +29,7 @@ const checkDbAndCollectionExist = async (dbName, collectionName) => {
   // Check if the collection exists in the database
   if (!dbExists && !collectionExists) {
     const existingCount = await UserModel.countDocuments();
-    console.log(existingCount, "existingCount");
+    // console.log(existingCount, "existingCount");
     if (existingCount === 0) {
       const dummyData = [
         { name: "John Doe", age: 28, email: "john@example.com" },

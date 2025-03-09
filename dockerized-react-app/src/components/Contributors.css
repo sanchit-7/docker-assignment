@@ -19,13 +19,8 @@
   border-radius: 10px;
   padding: 20px;
   padding-bottom: 25px;
-  /* width: 100%; */
-  /* max-width: 900px; Limit the width of the container */
-
   background: rgba(185, 213, 255, 0.16); /* Transparent box with a subtle dark tint */
-  backdrop-filter: blur(
-    8px
-  ); /* Apply the blur effect on the content behind the box */
+  backdrop-filter: blur(8px); /* Apply the blur effect on the content behind the box */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -109,30 +104,6 @@
   bottom: 20px;
   background-color: #00d8ff;
 }
-
-/* Modal Overlay (background) */
-/* .modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-} */
-
- /* Modal Content Box
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 8px;
-  width: 300px;
-  text-align: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-} */
 
 .modal-overlay {
   opacity: 0;
